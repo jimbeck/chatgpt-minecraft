@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const fs = require('fs');
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 const url = 'https://minecraft-archive.fandom.com/wiki/Blocks/Gallery';
@@ -9,6 +10,17 @@ async function main() {
   for (let location of locations) {
     await uploadFileToS3(location.url, location.name)
   }
+  const newLocations = locations.map(x => ({
+    name: x.name,
+    url: `https://cdn.staging.rifik.com/minecraft/images/${x.name}.png`
+  }));  
+  fs.writeFile('src/app/images.ts', `export const images = ${JSON.stringify(newLocations, 'test', 2)}`, (err) => {
+    if (err) {
+      console.error('Error writing JSON file:', err);
+    } else {
+      console.log('JSON file has been written successfully.');
+    }
+  });
 } 
 
 async function retrieveBlockLocations() {
@@ -23,7 +35,7 @@ async function retrieveBlockLocations() {
   galleryItems.each((index, element) => {
     const image = $(element).find('.thumbimage');
     const url = image.attr('data-src');
-    const name =image.attr('alt');
+    const name = image.attr('alt');
     urls.push({name, url});
   });
   return urls;

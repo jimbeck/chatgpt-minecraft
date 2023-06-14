@@ -8,7 +8,7 @@ interface ApiButtonProps {
   orgId: string,
   apiKey: string,
   onOrgIdUpdate: (id: string) => void;
-  onApiKeyUpdate?: (key: string) => void;
+  onApiKeyUpdate: (key: string) => void;
 }
 
 export function ApiButton({orgId, apiKey, onOrgIdUpdate, onApiKeyUpdate}: ApiButtonProps) {

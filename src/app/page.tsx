@@ -7,8 +7,8 @@ import { ApiButton } from "./apiButton";
 export default function Home() {
   const [orgId, setOrgId] = useState('');
   const [apiKey, setApiKey] = useState('');
-  const firstLetter = useRef('');
-  const birthdayMonth = useRef('');
+  const [firstLetter, setFirstLetter] = useState('');
+  const [birthdayMonth, setBirthdayMonth] = useState('');
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState('Waiting to blow your mind...');
 
@@ -70,8 +70,8 @@ export default function Home() {
               name="letter"
               id="letter"
               placeholder="J..."
-              value={firstLetter.current}
-              onChange={(e) => (firstLetter.current = e.target.value)}
+              value={firstLetter}
+              onChange={(e) => setFirstLetter(e.target.value)}
               className="w-96 pl-4 py-2 border-2 border-gray-200 focus:border-slate-400 focus:outline-none rounded"
             />
           </div>
@@ -84,8 +84,8 @@ export default function Home() {
               name="birthday"
               id="birthday"
               placeholder="January..."
-              value={birthdayMonth.current}
-              onChange={(e) => (birthdayMonth.current = e.target.value)}
+              value={birthdayMonth}
+              onChange={(e) => setBirthdayMonth(e.target.value)}
               className="w-96 pl-4 py-2 border-2 border-gray-200 focus:border-slate-400 focus:outline-none rounded"
             />
           </div>

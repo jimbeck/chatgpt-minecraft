@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <button onClick={callChatGPT} className="px-4 py-2 rounded bg-emerald-400 text-slate-700">Submit</button>
         </div>
-        <div className="mt-2 p-4 max-w-2xl bg-gray-100 rounded">
+        <div className="mt-2 p-4 max-w-2xl bg-white rounded border-2 border-gray-200 focus:border-slate-400 focus:outline-none flex items-center">
           {loading ? 
             (<div>loading</div>) :
             (<div className="whitespace-pre-line">{response}</div>)

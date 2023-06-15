@@ -59,7 +59,7 @@ export default function Home() {
         <img src={images[(currentImage + 1) % images.length].url} alt="Switched Image" className="my-4 h-32 w-32"/>
         <img src={images[(currentImage + 2) % images.length].url} alt="Switched Image" className="my-4 h-32 w-32"/>
       </div>
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <div className="flex flex-col gap-4 justify-center">
           <div>
             <label htmlFor="letter" className="block text-sm font-medium leading-6 text-white">

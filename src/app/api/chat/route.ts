@@ -32,7 +32,6 @@ export async function POST(request: Request) {
             `Output the response in the following format, "You are a <blockname>!, <2 bullets explaining why>.` +
             `Each sentence should be 1 sentence long.` +
             `The audience is older teenages that are into memes and like to joke around.`,
-          // "Choose Jack-O-Lanter",
         },
       ],
     });

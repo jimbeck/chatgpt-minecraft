@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       model: "gpt-4-turbo-preview",
       messages: [
         {
-          role: "user",
+          role: "system",
           content:
             `Can you provide me a minecraft block that is best represented by the following information:` +
             `The first letter of my name is ${firstLetter}.` +
